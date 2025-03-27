@@ -1,3 +1,6 @@
+<?php
+$strankaTeraz = basename($_SERVER['PHP_SELF']);
+?>
 
 <div class="container-fluid bg-white sticky-top">
     <div class="container">
@@ -10,11 +13,11 @@
             </button>
             <div class="collapse navbar-collapse" id="navbarCollapse">
                 <div class="navbar-nav ms-auto">
-                    <a href="/cajovna/index.php" class="nav-item nav-link active">Domov</a>
-                    <a href="/cajovna/about.php" class="nav-item nav-link">O nás</a>
-                    <a href="/cajovna/product.php" class="nav-item nav-link">Produkty</a>
-                    <a href="/cajovna/store.php" class="nav-item nav-link">Obchod</a>
-                    <a href="/cajovna/contact.php" class="nav-item nav-link">Kontakt</a>
+                    <a href="/cajovna/index.php" class="nav-item nav-link <?php echo $strankaTeraz == 'index.php' ? 'active' : ''; ?>">Domov</a>
+                    <a href="/cajovna/about.php" class="nav-item nav-link <?php echo $strankaTeraz == 'about.php' ? 'active' : ''; ?>">O nás</a>
+                    <a href="/cajovna/product.php" class="nav-item nav-link <?php echo $strankaTeraz == 'product.php' ? 'active' : ''; ?>">Produkty</a>
+                    <a href="/cajovna/store.php" class="nav-item nav-link <?php echo $strankaTeraz == 'store.php' ? 'active' : ''; ?>">Obchod</a>
+                    <a href="/cajovna/contact.php" class="nav-item nav-link <?php echo $strankaTeraz == 'contact.php' ? 'active' : ''; ?>">Kontakt</a>
                 </div>
                 <div class="border-start ps-4 d-none d-lg-block">
                     <button type="button" class="btn btn-sm p-0"><i class="fa fa-search"></i></button>

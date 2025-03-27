@@ -1,0 +1,40 @@
+{
+  "carousel": [
+    {
+      "image": "img/carousel/carousel-1.jpg"
+    },
+    {
+      "image": "img/carousel/carousel-2.jpg"
+    },
+    {
+      "image": "img/carousel/carousel-3.jpg"
+    },
+    {
+      "image": "img/carousel/carousel-4.jpg"
+    }
+  ],
+
+  "stranky": {
+    "store.php": {
+      "title": "Obchod",
+      "title2": "Obchod"
+    },
+    "about.php": {
+      "title": "O nás",
+      "title2": "O nás"
+    },
+    "contact.php": {
+      "title": "Kontakt",
+      "title2": "Kontakt"
+    },
+    "product.php": {
+      "title": "Produkty",
+      "title2": "Produkty"
+    },
+    "thankyou.php": {
+      "title": "Ďakujeme",
+      "title2": "Ďakujeme"
+    }
+  }
+
+}

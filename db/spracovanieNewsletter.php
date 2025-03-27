@@ -16,12 +16,11 @@ try {
 }
 
 // Získanie údajov z formulára
-$meno = $_POST["meno"];
-$email = $_POST["email"];
-$sprava = $_POST["sprava"];
+$mail = $_POST["newsletterEmail"];
+
 // SQL príkaz INSERT
-$sql = "INSERT INTO formular (meno, email, sprava) 
-    VALUE ('".$meno."', '".$email."', '".$sprava."')";
+$sql = "INSERT INTO newsletter (email) 
+    VALUE ('".$mail."')";
 $statement = $conn->prepare($sql);
 try {
     $insert = $statement->execute();
