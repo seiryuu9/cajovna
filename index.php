@@ -16,8 +16,10 @@
         <div id="header-carousel" class="carousel slide carousel-fade" data-bs-ride="carousel">
             <div class="carousel-inner">
                 <?php
-                    include_once 'funkcie.php';
-                    carousel();
+                use carousel\carousel;
+                include_once 'classes/carousel.php';
+                $carousel = new carousel(); // instancia triedy
+                $carousel->carousel(); // volanie metody
                 ?>
             <button class="carousel-control-prev" type="button" data-bs-target="#header-carousel"
                 data-bs-slide="prev">
