@@ -1,3 +1,6 @@
+<!DOCTYPE html>
+<html lang="sk">
+
 <?php
 include_once 'parts/head.php';
 ?>
@@ -15,8 +18,8 @@ include_once 'parts/head.php';
     <div class="container-xxl contact py-5">
         <div class="container">
             <div class="section-title text-center mx-auto wow fadeInUp" data-wow-delay="0.1s" style="max-width: 500px;">
-                <p class="fs-5 fw-medium fst-italic text-primary">Contact Us</p>
-                <h1 class="display-6">If You Have Any Query, Please Contact Us</h1>
+                <p class="fs-5 fw-medium fst-italic text-primary">Kontaktujte nás</p>
+                <h1 class="display-6">Ak máte nejakú otázku, neváhajte sa nám ozvať</h1>
             </div>
             <div class="row g-5 mb-5">
                 <div class="col-md-4 text-center wow fadeInUp" data-wow-delay="0.3s">
@@ -43,8 +46,8 @@ include_once 'parts/head.php';
             </div>
             <div class="row g-5">
                 <div class="col-lg-6 wow fadeInUp" data-wow-delay="0.1s">
-                    <h3 class="mb-4">Need a functional contact form?</h3>
-                    <p class="mb-4">The contact form is currently inactive. Get a functional and working contact form with Ajax & PHP in a few minutes. Just copy and paste the files, add a little code and you're done. <a href="https://htmlcodex.com/contact-form">Download Now</a>.</p>
+                    <h3 class="mb-4">Svoje údaje zadajte sem.</h3>
+                    <p class="mb-4">Vaše údaje budú spracované v súlade s GDPR.</p>
                     <form id="contact" method="post" action="db/spracovanieFormulara.php">
                         <div class="row g-3">
                             <div class="col-md-6">
@@ -66,7 +69,7 @@ include_once 'parts/head.php';
                                 </div>
                             </div>
                             <div class="col-12">
-                                <button class="btn btn-primary rounded-pill py-3 px-5" type="submit">Send Message</button>
+                                <button class="btn btn-primary rounded-pill py-3 px-5" type="submit">Odoslať</button>
                             </div>
                         </div>
                     </form>
@@ -88,20 +91,6 @@ include_once 'parts/head.php';
     include_once '../cajovna/parts/footer.php';
     ?>
 
-    <!-- Back to Top -->
-    <a href="#" class="btn btn-lg btn-primary btn-lg-square rounded-circle back-to-top"><i class="bi bi-arrow-up"></i></a>
-
-
-    <!-- JavaScript Libraries -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="lib/wow/wow.min.js"></script>
-    <script src="lib/easing/easing.min.js"></script>
-    <script src="lib/waypoints/waypoints.min.js"></script>
-    <script src="lib/owlcarousel/owl.carousel.min.js"></script>
-
-    <!-- Template Javascript -->
-    <script src="js/main.js"></script>
 </body>
 
 </html>

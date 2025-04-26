@@ -1,3 +1,6 @@
+<!DOCTYPE html>
+<html lang="sk">
+
 <?php
 include_once 'parts/head.php';
 ?>
@@ -14,8 +17,8 @@ include_once 'parts/head.php';
     <div class="container-xxl py-5">
         <div class="container">
             <div class="section-title text-center mx-auto wow fadeInUp" data-wow-delay="0.1s" style="max-width: 500px;">
-                <p class="fs-5 fw-medium fst-italic text-primary">Online Store</p>
-                <h1 class="display-6">Want to stay healthy? Choose tea taste</h1>
+                <p class="fs-5 fw-medium fst-italic text-primary">E-shop</p>
+                <h1 class="display-6">Chcete zostať zdraví? Vyberte si príchuť čaju</h1>
             </div>
             <div class="row g-4">
                 <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
@@ -29,13 +32,13 @@ include_once 'parts/head.php';
                                 <small class="fa fa-star text-primary"></small>
                                 <small class="fa fa-star text-primary"></small>
                             </div>
-                            <h4 class="mb-3">Nature close tea</h4>
+                            <h4 class="mb-3">Prírode blízky čaj</h4>
                             <p>Aliqu diam amet diam et eos. Clita erat ipsum lorem erat ipsum lorem sit sed</p>
                             <h4 class="text-primary">$19.00</h4>
                         </div>
                         <div class="store-overlay">
-                            <a href="" class="btn btn-primary rounded-pill py-2 px-4 m-2">More Detail <i class="fa fa-arrow-right ms-2"></i></a>
-                            <a href="" class="btn btn-dark rounded-pill py-2 px-4 m-2">Add to Cart <i class="fa fa-cart-plus ms-2"></i></a>
+                            <a href="" class="btn btn-primary rounded-pill py-2 px-4 m-2">Detail <i class="fa fa-arrow-right ms-2"></i></a>
+                            <a href="" class="btn btn-dark rounded-pill py-2 px-4 m-2">Pridať do košíka <i class="fa fa-cart-plus ms-2"></i></a>
                         </div>
                     </div>
                 </div>
@@ -50,13 +53,13 @@ include_once 'parts/head.php';
                                 <small class="fa fa-star text-primary"></small>
                                 <small class="fa fa-star text-primary"></small>
                             </div>
-                            <h4 class="mb-3">Green tea tulsi</h4>
+                            <h4 class="mb-3">Zelený čaj tulsi</h4>
                             <p>Aliqu diam amet diam et eos. Clita erat ipsum lorem erat ipsum lorem sit sed</p>
                             <h4 class="text-primary">$19.00</h4>
                         </div>
                         <div class="store-overlay">
-                            <a href="" class="btn btn-primary rounded-pill py-2 px-4 m-2">More Detail <i class="fa fa-arrow-right ms-2"></i></a>
-                            <a href="" class="btn btn-dark rounded-pill py-2 px-4 m-2">Add to Cart <i class="fa fa-cart-plus ms-2"></i></a>
+                            <a href="" class="btn btn-primary rounded-pill py-2 px-4 m-2">Detail <i class="fa fa-arrow-right ms-2"></i></a>
+                            <a href="" class="btn btn-dark rounded-pill py-2 px-4 m-2">Pridať do košíka <i class="fa fa-cart-plus ms-2"></i></a>
                         </div>
                     </div>
                 </div>
@@ -71,18 +74,18 @@ include_once 'parts/head.php';
                                 <small class="fa fa-star text-primary"></small>
                                 <small class="fa fa-star text-primary"></small>
                             </div>
-                            <h4 class="mb-3">Instant tea premix</h4>
+                            <h4 class="mb-3">Instantný čajový mix</h4>
                             <p>Aliqu diam amet diam et eos. Clita erat ipsum lorem erat ipsum lorem sit sed</p>
                             <h4 class="text-primary">$19.00</h4>
                         </div>
                         <div class="store-overlay">
-                            <a href="" class="btn btn-primary rounded-pill py-2 px-4 m-2">More Detail <i class="fa fa-arrow-right ms-2"></i></a>
-                            <a href="" class="btn btn-dark rounded-pill py-2 px-4 m-2">Add to Cart <i class="fa fa-cart-plus ms-2"></i></a>
+                            <a href="" class="btn btn-primary rounded-pill py-2 px-4 m-2">Detail <i class="fa fa-arrow-right ms-2"></i></a>
+                            <a href="" class="btn btn-dark rounded-pill py-2 px-4 m-2">Pridať do košíka <i class="fa fa-cart-plus ms-2"></i></a>
                         </div>
                     </div>
                 </div>
                 <div class="col-12 text-center wow fadeInUp" data-wow-delay="0.1s">
-                    <a href="" class="btn btn-primary rounded-pill py-3 px-5">View More Products</a>
+                    <a href="" class="btn btn-primary rounded-pill py-3 px-5">Zobraziť viac produktov</a>
                 </div>
             </div>
         </div>
@@ -93,20 +96,6 @@ include_once 'parts/head.php';
     include_once '../cajovna/parts/footer.php';
     ?>
 
-    <!-- Back to Top -->
-    <a href="#" class="btn btn-lg btn-primary btn-lg-square rounded-circle back-to-top"><i class="bi bi-arrow-up"></i></a>
-
-
-    <!-- JavaScript Libraries -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="lib/wow/wow.min.js"></script>
-    <script src="lib/easing/easing.min.js"></script>
-    <script src="lib/waypoints/waypoints.min.js"></script>
-    <script src="lib/owlcarousel/owl.carousel.min.js"></script>
-
-    <!-- Template Javascript -->
-    <script src="js/main.js"></script>
 </body>
 
 </html>
