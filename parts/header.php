@@ -1,6 +1,6 @@
 <?php
-    use header\generateHeader;
-    include_once 'classes/generateHeader.php';
-    $header = new generateHeader(); //trieda
-    $header->generateHeader(); //metoda
+    use headerN\GenerateHeader;
+    include_once 'classes/GenerateHeader.php';
+    $header = new GenerateHeader(); //trieda
+    $header->generateHeaderF(); //metoda
 ?>

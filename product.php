@@ -1,3 +1,7 @@
+<?php
+include_once 'parts/theme-handler.php';
+?>
+
 <!DOCTYPE html>
 <html lang="sk">
 
@@ -5,7 +9,7 @@
 include_once 'parts/head.php';
 ?>
 
-<body>
+<body class="<?php echo $themeClass; ?>">
 
     <?php
     include_once 'parts/nav.php';

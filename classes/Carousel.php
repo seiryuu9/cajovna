@@ -1,22 +1,22 @@
 <?php
 
-namespace carousel;
-use pozdrav\pozdrav; //prve je namespace
-include_once 'classes/pozdrav.php';
+namespace carouselN;
+use pozdravN\pozdrav; //prve je namespace
+include_once 'classes/Pozdrav.php';
 
 
-class carousel
+class Carousel
 {
     protected $pozdrav;
 
     public function __construct()
     {
-        $this->pozdrav = new pozdrav(); // treba konstruktor na prvotnu inicializaciu
+        $this->Pozdrav = new Pozdrav(); // treba konstruktor na prvotnu inicializaciu triedy
     }
-    function carousel(){
+    function carouselF(){
 
         $json = file_get_contents('data/datas.json');
-        $data = json_decode($json, true);
+        $data = json_decode($json, true); //true vrati asociativne pole (nie objekt)
         $carouselData = $data['carousel'];
 
         foreach ($carouselData as $index => $slide) {
@@ -27,7 +27,7 @@ class carousel
             echo '<div class="container">';
             echo '<div class="row justify-content-center">';
             echo '<div class="col-lg-7 text-center">';
-            $this->pozdrav->pozdrav();
+            $this->Pozdrav->pozdravF();
             echo '<h1 class="display-1 text-dark mb-4 animated zoomIn">Organická & kvalitná produkcia čajov</h1>';
             echo '</div>';
             echo '</div>';

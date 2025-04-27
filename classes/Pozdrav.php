@@ -1,10 +1,10 @@
 <?php
 
-namespace pozdrav;
+namespace pozdravN;
 
-class pozdrav
+class Pozdrav
 {
-    function pozdrav()
+    function pozdravF()
     {
         $hour = date('H');
         if ($hour < 12) {

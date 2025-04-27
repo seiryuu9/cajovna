@@ -6,6 +6,63 @@
     --dark: #252C30;
 }
 
+/* Default Light Theme */
+body {
+    background-color: var(--light);
+    color: var(--dark);
+    transition: background-color 0.3s, color 0.3s;
+}
+
+/* Dark Theme */
+body.dark-theme {
+    background-color: var(--dark);
+    color: var(--light);
+}
+
+body.dark-theme h1.display-6,
+body.dark-theme h1.display-1,
+body.dark-theme h1.mb-4{
+    color: var(--light);}
+
+/* Dark Theme - Navbar */
+/* Dark Theme - Navbar and Parent Containers */
+body.dark-theme .container-fluid.sticky-top {
+    background-color: var(--dark); /* Dark background for the outer container */
+}
+
+body.dark-theme .navbar {
+    background-color: var(--dark); /* Dark background for the navbar */
+    color: var(--light); /* Light text color */
+}
+
+body.dark-theme .navbar .nav-link {
+    color: var(--light); /* Light text for links */
+}
+
+body.dark-theme .navbar .nav-link:hover,
+body.dark-theme .navbar .nav-link.active {
+    color: var(--primary); /* Highlight color for active or hovered links */
+}
+
+/* Light Theme - Navbar */
+body .container-fluid.sticky-top {
+    background-color: var(--light); /* Light background for the outer container */
+}
+
+body .navbar {
+    background-color: var(--light); /* Light background for the navbar */
+    color: var(--dark); /* Dark text color */
+}
+
+body .navbar .nav-link {
+    color: var(--dark); /* Dark text for links */
+}
+
+body .navbar .nav-link:hover,
+body .navbar .nav-link.active {
+    color: var(--primary); /* Highlight color for active or hovered links */
+}
+
 .back-to-top {
     position: fixed;
     display: none;

@@ -1,11 +1,15 @@
+<?php
+    include_once 'parts/theme-handler.php';
+?>
+
 <!DOCTYPE html>
 <html lang="sk">
 
 <?php
     include_once 'parts/head.php';
-    ?>
+?>
 
-<body>
+<body class="<?php echo $themeClass; ?>">
     
 <?php
     include_once 'parts/nav.php';
@@ -16,10 +20,10 @@
         <div id="header-carousel" class="carousel slide carousel-fade" data-bs-ride="carousel">
             <div class="carousel-inner">
                 <?php
-                use carousel\carousel;
-                include_once 'classes/carousel.php';
-                $carousel = new carousel(); // instancia triedy
-                $carousel->carousel(); // volanie metody
+                use carouselN\carousel;
+                include_once 'classes/Carousel.php';
+                $carousel = new Carousel(); // instancia triedy
+                $carousel->carouselF(); // volanie metody
                 ?>
             <button class="carousel-control-prev" type="button" data-bs-target="#header-carousel"
                 data-bs-slide="prev">
