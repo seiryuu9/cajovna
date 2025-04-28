@@ -16,8 +16,6 @@ include_once 'parts/head.php';
     include_once 'parts/header.php';
     ?>
 
-
-
     <!-- Contact Start -->
     <div class="container-xxl contact py-5">
         <div class="container">

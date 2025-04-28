@@ -16,7 +16,6 @@ include_once 'parts/head.php';
     include_once 'parts/header.php';
     ?>
 
-
     <!-- Products Start -->
     <div class="container-fluid product py-5 my-5">
         <div class="container py-5">
