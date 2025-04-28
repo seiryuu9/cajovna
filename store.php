@@ -41,8 +41,8 @@ include_once 'parts/head.php';
                             <h4 class="text-primary">$19.00</h4>
                         </div>
                         <div class="store-overlay">
-                            <a href="" class="btn btn-primary rounded-pill py-2 px-4 m-2">Detail <i class="fa fa-arrow-right ms-2"></i></a>
-                            <a href="" class="btn btn-dark rounded-pill py-2 px-4 m-2">Pridať do košíka <i class="fa fa-cart-plus ms-2"></i></a>
+                            <a href="tea.php?id=1" class="btn btn-primary rounded-pill py-2 px-4 m-2">Detail <i class="fa fa-arrow-right ms-2"></i></a>
+                            <a href="tea.php?id=1" class="btn btn-dark rounded-pill py-2 px-4 m-2">Pridať do košíka <i class="fa fa-cart-plus ms-2"></i></a>
                         </div>
                     </div>
                 </div>
@@ -62,8 +62,8 @@ include_once 'parts/head.php';
                             <h4 class="text-primary">$19.00</h4>
                         </div>
                         <div class="store-overlay">
-                            <a href="" class="btn btn-primary rounded-pill py-2 px-4 m-2">Detail <i class="fa fa-arrow-right ms-2"></i></a>
-                            <a href="" class="btn btn-dark rounded-pill py-2 px-4 m-2">Pridať do košíka <i class="fa fa-cart-plus ms-2"></i></a>
+                            <a href="tea.php?id=2" class="btn btn-primary rounded-pill py-2 px-4 m-2">Detail <i class="fa fa-arrow-right ms-2"></i></a>
+                            <a href="tea.php?id=2" class="btn btn-dark rounded-pill py-2 px-4 m-2">Pridať do košíka <i class="fa fa-cart-plus ms-2"></i></a>
                         </div>
                     </div>
                 </div>
@@ -83,8 +83,8 @@ include_once 'parts/head.php';
                             <h4 class="text-primary">$19.00</h4>
                         </div>
                         <div class="store-overlay">
-                            <a href="" class="btn btn-primary rounded-pill py-2 px-4 m-2">Detail <i class="fa fa-arrow-right ms-2"></i></a>
-                            <a href="" class="btn btn-dark rounded-pill py-2 px-4 m-2">Pridať do košíka <i class="fa fa-cart-plus ms-2"></i></a>
+                            <a href="tea.php?id=3" class="btn btn-primary rounded-pill py-2 px-4 m-2">Detail <i class="fa fa-arrow-right ms-2"></i></a>
+                            <a href="tea.php?id=3" class="btn btn-dark rounded-pill py-2 px-4 m-2">Pridať do košíka <i class="fa fa-cart-plus ms-2"></i></a>
                         </div>
                     </div>
                 </div>

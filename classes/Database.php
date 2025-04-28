@@ -1,6 +1,5 @@
 <?php
 
-define('__ROOT__', dirname(dirname(__FILE__))); //file - cela cesta do tohto suboru, dirname o folder vyssie, takze do /cajovna
 require_once (__ROOT__.'/db/config.php');
 class Database
 {
