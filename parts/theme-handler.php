@@ -1,7 +1,15 @@
 
 <?php
-session_start();
-require_once 'classes/Theme.php';
+if ((session_status() === PHP_SESSION_NONE)) {
+    session_start();
+}
+
+
+if (!defined('__ROOT__'))
+{
+    define('__ROOT__', dirname(dirname(__FILE__)));
+}
+require_once __ROOT__.'/classes/Theme.php';
 
 use themeN\Theme;
 

@@ -1,25 +1,17 @@
 <?php
+
 include_once 'parts/theme-handler.php';
+require_once(__DIR__ . '/classes/Cart.php');
 
-define('__ROOT__', dirname(__FILE__));
-require_once(__ROOT__ . '/classes/Database.php');
-$db = new Database();
-$conn = $db->getConnection();
+use cartN\Cart;
+$cart = new Cart();
 
-// Get product ID
-if (!isset($_GET['id'])) {
-    die('Produkt neexistuje.');
-}
-$id = intval($_GET['id']);
+$cart->handleAddToCart();
 
-// Fetch product info
-$stmt = $conn->prepare('SELECT * FROM products WHERE id = ?');
-$stmt->execute([$id]);
-$product = $stmt->fetch();
+$id = intval($_GET['id']); //konverzia na int (ochrana pred SQL injection, zoberie len cislo)
 
-if (!$product) {
-    die('Produkt neexistuje.');
-}
+$product = $cart->getProductById($id);
+
 ?>
 
 <!DOCTYPE html>
@@ -32,7 +24,7 @@ if (!$product) {
 <div class="container py-5">
     <div class="row">
         <div class="col-md-6">
-            <img src="<?php echo htmlspecialchars($product['image']); ?>" class="img-fluid" alt="">
+            <img src="<?php echo htmlspecialchars($product['image']); ?>" class="img-fluid" alt=""> <!--prepise specialne znaky aby sa predislo utokom-->
         </div>
         <div class="col-md-6">
             <h1><?php echo htmlspecialchars($product['name']); ?></h1>
@@ -43,10 +35,10 @@ if (!$product) {
                 <p class="text-danger">Vypredané</p>
             <?php else: ?>
                 <p>Skladom: <?php echo $product['stock']; ?> ks</p>
-                <?php if ($product['stock'] < 5): ?>
-                    <p class="text-warning">Pozor, ostáva len pár kusov!</p>
+                <?php if ($product['stock'] < 6): ?>
+                    <p class="text-warning">Pozor, zostáva len pár kusov!</p>
                 <?php endif; ?>
-                <form action="cart/add_to_cart.php" method="POST">
+                <form method="POST">
                     <input type="hidden" name="id" value="<?php echo $product['id']; ?>">
                     <div class="mb-3">
                         <label for="quantity" class="form-label">Množstvo</label>

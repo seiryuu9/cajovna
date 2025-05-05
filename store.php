@@ -9,6 +9,7 @@ include_once 'parts/theme-handler.php';
 include_once 'parts/head.php';
 ?>
 
+
 <body class="<?php echo $themeClass; ?>">
 
     <?php
@@ -38,7 +39,7 @@ include_once 'parts/head.php';
                             </div>
                             <h4 class="mb-3">Prírode blízky čaj</h4>
                             <p>Aliqu diam amet diam et eos. Clita erat ipsum lorem erat ipsum lorem sit sed</p>
-                            <h4 class="text-primary">$19.00</h4>
+                            <h4 class="text-primary">$12.99</h4>
                         </div>
                         <div class="store-overlay">
                             <a href="tea.php?id=1" class="btn btn-primary rounded-pill py-2 px-4 m-2">Detail <i class="fa fa-arrow-right ms-2"></i></a>
@@ -80,7 +81,7 @@ include_once 'parts/head.php';
                             </div>
                             <h4 class="mb-3">Instantný čajový mix</h4>
                             <p>Aliqu diam amet diam et eos. Clita erat ipsum lorem erat ipsum lorem sit sed</p>
-                            <h4 class="text-primary">$19.00</h4>
+                            <h4 class="text-primary">$17.00</h4>
                         </div>
                         <div class="store-overlay">
                             <a href="tea.php?id=3" class="btn btn-primary rounded-pill py-2 px-4 m-2">Detail <i class="fa fa-arrow-right ms-2"></i></a>

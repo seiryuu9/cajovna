@@ -2,46 +2,149 @@
 
 namespace cartN;
 use Database;
+use PDO;
+
+require_once (__DIR__ . '/Database.php');
+
 
 class Cart extends Database
 {
-
-    public function __construct()
-    {
-        session_start(); // Start session once
-        parent::__construct(); // Call parent constructor if Database has one
-        $this->conn = $this->getConnection(); // Get database connection
+    private array $cart;
+    public function __construct(){
+        parent::__construct(); // zavola konstruktor z databazy
+        $this->conn = $this->getConnection(); // pripojenie na databazu
+        $this->cart = $_SESSION['cart'] ?? []; // nacila kosik zo session (default prazdny) / asociativne pole
     }
-    function addToCart()
-    {
 
-        $id = intval($_POST['id']);
-        $quantity = intval($_POST['quantity']);
+    function getCart(): array{
+        return $this->cart;
+    }
 
-// Fetch product to validate
-        $stmt = $this->$conn->prepare('SELECT * FROM products WHERE id = ?');
+    function addToCart($id, $quantity){
+
+        $id = intval($id);
+        $quantity = intval($quantity);
+
+// fetch id
+        $stmt = $this->conn->prepare('SELECT * FROM products WHERE id = ?');
         $stmt->execute([$id]);
         $product = $stmt->fetch();
 
-        if (!$product || $quantity > $product['stock']) {
-            die('Nesprávna požiadavka.');
-        }
-
-// Add to session cart
-        if (!isset($_SESSION['cart'])) {
-            $_SESSION['cart'] = [];
-        }
-
-// If product already in cart, add quantity
+// prida/update mnozstvo
         if (isset($_SESSION['cart'][$id])) {
             $_SESSION['cart'][$id] += $quantity;
         } else {
             $_SESSION['cart'][$id] = $quantity;
         }
-
-        header('Location: /cajovna/cart.php');
-        exit;
-
     }
+
+    function removeFromCart($id){
+        $id = intval($id);
+        unset($_SESSION['cart'][$id]);
+    }
+
+    function buy(){
+
+        $conn = $this->getConnection();
+        $cart = $this->cart;
+
+        if (empty($cart)) {
+            header('Location: /cajovna/cart_page.php');
+            exit;
+        }
+
+        // pdo metoda (sekvencia databazovych operacii - transakcia)
+        $conn->beginTransaction();
+
+        try {
+            foreach ($cart as $productId => $quantity) { //kluc -> hodnota v poli cart
+                // vrati stock
+                $stmt = $conn->prepare('SELECT stock, price FROM products WHERE id = ?');
+                $stmt->execute([$productId]);
+                $product = $stmt->fetch(PDO::FETCH_ASSOC);
+
+                // update stock
+                $stmt = $conn->prepare('UPDATE products SET stock = stock - ? WHERE id = ?');
+                $stmt->execute([$quantity, $productId]);
+
+                // logne nakup anonymmne
+                $stmt = $conn->prepare('INSERT INTO purchases (product_id, quantity, price) VALUES (?, ?, ?)');
+                $stmt->execute([$productId, $quantity, $product['price']]);
+            }
+
+            // vycisti kosik
+            unset($_SESSION['cart']);
+
+            // ulozi zmeny
+            $conn->commit();
+
+            header('Location: /cajovna/thankyou.php');
+            exit;
+        } catch (Exception $e) {
+            // vymaze zmeny
+            $conn->rollBack();
+            echo "Chyba pri nákupe: " . $e->getMessage();
+            exit;
+        }
+    }
+
+    function getProductById($id) {
+        $stmt = $this->conn->prepare('SELECT * FROM products WHERE id = ?');
+        $stmt->execute([$id]);
+        return $stmt->fetch(); //pripravi sql dotaz - ? placeholder berie $id ako hodnotu, nie kod (sql injection), len 1 riadok
+    }
+
+    function handleAddtoCart(){
+        if ($_SERVER['REQUEST_METHOD'] === 'POST') { //z kupit
+            try {
+                $this->addToCart($_POST['id'], $_POST['quantity']);
+                header('Location: /cajovna/cart_page.php');
+                exit;
+            } catch (Exception $e) {
+                echo "Chyba: " . $e->getMessage();
+                exit;
+            }
+        }
+    }
+
+    function getCartProducts(): array {
+        if (!empty($this->cart)) {
+            // zozbiera kluce - id
+            $cartKeys = array_keys($this->cart);
+
+            // konverzia na int
+            $cartKeysInt = array_map('intval', $cartKeys);
+
+            //spravi z nich string
+            $placeholders = implode(',', array_fill(0, count($cartKeysInt), '?'));
+            $stmt = $this->conn->prepare("SELECT * FROM products WHERE id IN ($placeholders)");
+            $stmt->execute($cartKeysInt);
+
+            return $stmt->fetchAll();
+        } return []; //prazdny kosik
+    }
+
+    function handleRemoveFromCart(){
+        if (isset($_GET['remove_id'])) { //z url
+            $this->removeFromCart($_GET['remove_id']);
+            header('Location: cart_page.php');
+            exit;
+        }
+    }
+
+    function handleBuy(){
+        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+            try {
+                $this->buy();
+                $_SESSION['cart'] = [];
+                header('Location: thankyou.php');
+                exit;
+            } catch (Exception $e) {
+                echo "Chyba: " . $e->getMessage();
+                exit;
+            }
+        }
+    }
+
 
 }
