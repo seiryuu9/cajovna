@@ -1,5 +1,7 @@
 <?php
 
+namespace cajovna\classes;
+
 if (!defined('__ROOT__'))
 {
     define('__ROOT__', dirname(dirname(__FILE__)));
@@ -19,14 +21,14 @@ class Database
     {
         $config = DATABASE;
         $options = array(
-            PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION, //kazda databazova chyba bude PDOException
-            PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC, //defaultne sa bude vracat asociativne pole
+            \PDO::ATTR_ERRMODE => \PDO::ERRMODE_EXCEPTION, //kazda databazova chyba bude PDOException
+            \PDO::ATTR_DEFAULT_FETCH_MODE => \PDO::FETCH_ASSOC, //defaultne sa bude vracat asociativne pole
         );
         try {
-            $this->conn = new PDO('mysql:host=' . $config['HOST'] . ';dbname=' .
+            $this->conn = new \PDO('mysql:host=' . $config['HOST'] . ';dbname=' .
                 $config['DBNAME'] . ';port=' . $config['PORT'], $config['USER_NAME'],
                 $config['PASSWORD'], $options);
-        } catch (PDOException $e) {
+        } catch (\PDOException $e) {
             die("Chyba pripojenia: " . $e->getMessage());
         }
     }
@@ -41,3 +43,4 @@ class Database
 
 //PDO je PHP Data Objects - zabezpecuje rovnake rozhranie pre pripojenie k roznym databazam
 // napr prepared statements zabezpecuju, ze sa do databazy nedostanu zle udaje (sql injection)
+// \PDO je globalna, inak namespace conflict cajovna\classes\pdo

@@ -20,7 +20,7 @@
         <div id="header-carousel" class="carousel slide carousel-fade" data-bs-ride="carousel">
             <div class="carousel-inner">
                 <?php
-                use carouselN\carousel;
+                use cajovna\classes\carousel;
                 include_once 'classes/Carousel.php';
                 $carousel = new Carousel(); // instancia triedy
                 $carousel->carouselF(); // volanie metody

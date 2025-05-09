@@ -1,6 +1,6 @@
 <?php
 
-namespace pozdravN;
+namespace cajovna\classes;
 
 class Pozdrav
 {

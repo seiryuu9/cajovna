@@ -16,9 +16,6 @@ include_once 'parts/head.php';
     include_once 'parts/header.php';
     ?>
 
-
-
-
     <!-- About Start -->
     <div class="container-xxl py-5">
         <div class="container">

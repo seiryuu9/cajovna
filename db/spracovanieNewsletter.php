@@ -1,26 +1,26 @@
 <?php
-require_once __DIR__ . '/../classes/Database.php'; // Include the Database class
+require_once __DIR__ . '/../classes/Database.php';
 
-// Create an instance of the Database class
+use cajovna\classes\Database;
+
 $db = new Database();
 
-// Get the PDO connection
 $conn = $db->getConnection();
 
-// Získanie údajov z formulára
 $mail = $_POST["newsletterEmail"];
 
 // SQL príkaz INSERT
 $sql = "INSERT INTO newsletter (email) 
-    VALUES ('".$mail."')";
+    VALUES (:mail)";
 $statement = $conn->prepare($sql); //uzamkne strukturu tabulky, takze sa tam nedostane neziadany kod (placeholders su este bezpecnejsie)
+
 try {
+    $statement->bindParam(':mail', $mail, PDO::PARAM_STR);
+
     $insert = $statement->execute();
     header("Location: http://localhost/cajovna/thankyou.php"); // THANK YOU STRANKA
-    return $insert;
-} catch (PDOException $exception) {
-    return false;
+    exit();
+} catch (PDOException $e) {
+    echo $e->getMessage();
+    exit();
 }
-
-// Zatvorenie pripojenia
-$conn = null;

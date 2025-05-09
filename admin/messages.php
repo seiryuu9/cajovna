@@ -1,13 +1,18 @@
 <?php
-require_once 'authentication.php';
+
 require_once __DIR__ . '/../classes/Database.php';
+require_once __DIR__ . '/../classes/Admin.php';
+
+use cajovna\classes\Admin;
+use cajovna\classes\Database;
+
+Admin::check();
 
 $db = new Database();
 $conn = $db->getConnection();
 
-// Načítanie všetkých správ
-$stmt = $conn->query("SELECT * FROM formular ORDER BY id");
-$messages = $stmt->fetchAll(PDO::FETCH_ASSOC);
+$stmt = $conn->query("SELECT * FROM formular ORDER BY id"); //CRUD - read
+$messages = $stmt->fetchAll(PDO::FETCH_ASSOC); //zobrazi vsetky spravy v asociativnom poli
 ?>
 
 <!DOCTYPE html>
@@ -39,7 +44,7 @@ include_once '../parts/theme-handler.php';
             </tr>
             </thead>
             <tbody>
-            <?php foreach ($messages as $msg): ?>
+            <?php foreach ($messages as $msg): ?> <!--msg je jeden riadok-->
                 <tr>
                     <td><?= $msg['ID'] ?></td>
                     <td><?= htmlspecialchars($msg['meno']) ?></td>
@@ -47,7 +52,7 @@ include_once '../parts/theme-handler.php';
                     <td><?= nl2br(htmlspecialchars($msg['sprava'])) ?></td>
                     <td>
                         <a href="edit_messages.php?id=<?= $msg['ID'] ?>" class="btn btn-sm btn-warning">Upraviť</a>
-                        <a href="delete_messages.php?id=<?= $msg['ID'] ?>" class="btn btn-sm btn-danger" onclick="return confirm('Naozaj chceš túto správu vymazať?')">Vymazať</a>
+                        <a href="delete_messages.php?id=<?= $msg['ID'] ?>" class="btn btn-sm btn-danger" onclick="return confirm('Naozaj chcete túto správu vymazať?')">Vymazať</a>
                     </td>
                 </tr>
             <?php endforeach; ?>

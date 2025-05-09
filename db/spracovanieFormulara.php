@@ -1,30 +1,35 @@
 <?php
-require_once __DIR__ . '/../classes/Database.php'; // Include the Database class
+require_once __DIR__ . '/../classes/Database.php'; // folder o jeden vyssie
 
-// Create an instance of the Database class
+use cajovna\classes\Database;
+
 $db = new Database();
 
-// Get the PDO connection
 $conn = $db->getConnection();
 
-// Získanie údajov z formulára (name v html)
+// ziskanie udajov z formulara (name v html)
 $meno = $_POST["meno"];
 $email = $_POST["email"];
 $sprava = $_POST["sprava"];
 
-// SQL príkaz INSERT
+// CRUD -  create
 $sql = "INSERT INTO formular (meno, email, sprava) 
-    VALUES ('".$meno."', '".$email."', '".$sprava."')"; //double quotes - premenne na nahradenie
+        VALUES (:meno, :email, :sprava)"; //placeholder na preventnutie SQL injection
 
 $statement = $conn->prepare($sql);
 
 try {
+    $statement->bindParam(':meno', $meno, PDO::PARAM_STR); //parameter je string
+    $statement->bindParam(':email', $email, PDO::PARAM_STR);
+    $statement->bindParam(':sprava', $sprava, PDO::PARAM_STR);
+
     $insert = $statement->execute();
     header("Location: http://localhost/cajovna/thankyou.php"); // THANK YOU STRANKA
-    return $insert; //true
-} catch (PDOException $exception) {
-    return false;
+    exit();
+} catch (PDOException $e) {
+    echo $e->getMessage();
+    exit();
 }
 
-// Zatvorenie pripojenia
-$conn = null;
+// Zatvorenie pripojenia - zatvori sa automaticky exitom
+//$conn = null;

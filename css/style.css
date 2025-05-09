@@ -25,6 +25,7 @@ body.dark-theme h1.mb-4,
 body.dark-theme h1,
 body.dark-theme h4.mb-3,
 body.dark-theme h2.mb-4,
+body.dark-theme h3.mb-4,
 body.dark-theme table{
     color: var(--light);
 }

@@ -1,6 +1,6 @@
 <?php
 
-namespace headerN;
+namespace cajovna\classes;
 
 class GenerateHeader
 {

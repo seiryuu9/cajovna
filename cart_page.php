@@ -3,7 +3,7 @@
 include_once 'parts/theme-handler.php';
 require_once __DIR__ . '/classes/Cart.php'; // vrati folder stranky
 
-use cartN\Cart;
+use cajovna\classes\Cart;
 
 $cartClass = new Cart();
 

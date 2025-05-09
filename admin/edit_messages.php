@@ -1,23 +1,8 @@
 <?php
-require_once __DIR__ . '/../classes/Database.php';
-$db = new Database();
-$conn = $db->getConnection();
+require_once __DIR__ . '/../classes/Admin.php';
+use cajovna\classes\Admin;
 
-$id = $_GET['id'];
-$stmt = $conn->prepare("SELECT * FROM formular WHERE id = ?");
-$stmt->execute([$id]);
-$message = $stmt->fetch(PDO::FETCH_ASSOC);
-
-if ($_SERVER["REQUEST_METHOD"] === "POST") {
-    $meno = $_POST['meno'];
-    $email = $_POST['email'];
-    $sprava = $_POST['sprava'];
-
-    $update = $conn->prepare("UPDATE formular SET meno = ?, email = ?, sprava = ? WHERE id = ?");
-    $update->execute([$meno, $email, $sprava, $id]);
-    header("Location: messages.php");
-    exit;
-}
+$message = Admin::editMessage($_GET['id'], $_POST ?? []); //get je v url, post v form
 ?>
 
 <!DOCTYPE html>

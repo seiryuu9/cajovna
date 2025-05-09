@@ -1,7 +1,7 @@
 <?php
 
-namespace cartN;
-use Database;
+namespace cajovna\classes;
+use cajovna\classes\Database;
 use PDO;
 
 require_once (__DIR__ . '/Database.php');
@@ -68,8 +68,11 @@ class Cart extends Database
                 $stmt->execute([$quantity, $productId]);
 
                 // logne nakup anonymmne
+                $totalPrice = $product['price'] * $quantity;
+
+                // Log the purchase with total price
                 $stmt = $conn->prepare('INSERT INTO purchases (product_id, quantity, price) VALUES (?, ?, ?)');
-                $stmt->execute([$productId, $quantity, $product['price']]);
+                $stmt->execute([$productId, $quantity, $totalPrice]);
             }
 
             // vycisti kosik
@@ -80,7 +83,7 @@ class Cart extends Database
 
             header('Location: /cajovna/thankyou.php');
             exit;
-        } catch (Exception $e) {
+        } catch (\PDOException $e) {
             // vymaze zmeny
             $conn->rollBack();
             echo "Chyba pri nákupe: " . $e->getMessage();
@@ -100,7 +103,7 @@ class Cart extends Database
                 $this->addToCart($_POST['id'], $_POST['quantity']);
                 header('Location: /cajovna/cart_page.php');
                 exit;
-            } catch (Exception $e) {
+            } catch (\PDOException $e) {
                 echo "Chyba: " . $e->getMessage();
                 exit;
             }
@@ -139,7 +142,7 @@ class Cart extends Database
                 $_SESSION['cart'] = [];
                 header('Location: thankyou.php');
                 exit;
-            } catch (Exception $e) {
+            } catch (\PDOException $e) {
                 echo "Chyba: " . $e->getMessage();
                 exit;
             }

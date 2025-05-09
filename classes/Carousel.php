@@ -1,7 +1,7 @@
 <?php
 
-namespace carouselN;
-use pozdravN\pozdrav; //prve je namespace
+namespace cajovna\classes;
+use cajovna\classes\pozdrav; //prve je namespace
 include_once 'classes/Pozdrav.php';
 
 

@@ -1,23 +1,14 @@
 <?php
-
 session_start();
-$error = '';
+require_once __DIR__ . '/../classes/Admin.php';
+use cajovna\classes\Admin;
 
+    $error = '';
+// skontroluj, ci bola form odoslana postom
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    $username = $_POST['username'];
-    $password = $_POST['password'];
-
-    // Hardcoded login (replace with database if needed)
-    $validUsername = 'admin';
-    $validPassword = password_hash('admin123', PASSWORD_DEFAULT); // Hashed password // You can hash this for better security
-
-    if ($username === $validUsername && password_verify($password, $validPassword)) {
-        $_SESSION['admin_logged_in'] = true;
-        header('Location: messages.php');
-        exit;
-    } else {
-        $error = 'Nesprávne meno alebo heslo.';
-    }
+    $username = $_POST['username'] ?? ''; //ak nie je nastaveny, prazdny retazec
+    $password = $_POST['password'] ?? ''; //name z form
+    $error = Admin::login($username, $password);
 }
 ?>
 

@@ -11,7 +11,7 @@ if (!defined('__ROOT__'))
 }
 require_once __ROOT__.'/classes/Theme.php';
 
-use themeN\Theme;
+use cajovna\classes\Theme;
 
 // Save id if available
 if (isset($_GET['id'])) {

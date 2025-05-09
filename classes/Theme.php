@@ -1,6 +1,6 @@
 <?php
 
-namespace themeN;
+namespace cajovna\classes;
 
 class Theme
 {
