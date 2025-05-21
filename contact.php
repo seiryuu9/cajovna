@@ -54,19 +54,19 @@ include_once 'parts/head.php';
                         <div class="row g-3">
                             <div class="col-md-6">
                                 <div class="form-floating">
-                                    <input type="text" class="form-control" id="name" placeholder="Meno" name="meno" >
+                                    <input type="text" class="form-control" id="name" placeholder="Meno" name="meno" required>
                                     <label for="name">Meno</label>
                                 </div>
                             </div>
                             <div class="col-md-6">
                                 <div class="form-floating">
-                                    <input type="email" class="form-control" id="email" placeholder="Email" name="email">
+                                    <input type="email" class="form-control" id="email" placeholder="Email" name="email" required>
                                     <label for="email">Email</label>
                                 </div>
                             </div>
                             <div class="col-12">
                                 <div class="form-floating">
-                                    <textarea class="form-control" placeholder="Sem napíšte vašu správu" id="message" name="sprava" style="height: 120px"></textarea>
+                                    <textarea class="form-control" placeholder="Sem napíšte vašu správu" id="message" name="sprava" style="height: 120px" required></textarea>
                                     <label for="message">Sem napíšte vašu správu</label>
                                 </div>
                             </div>

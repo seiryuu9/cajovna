@@ -13,12 +13,24 @@ class Admin{
         // Hardcoded login (replace with database if needed)
         $error = '';
 
+        // Inicializuj počet pokusov, ak ešte neexistuje
+        if (!isset($_SESSION['login_attempts'])) {
+            $_SESSION['login_attempts'] = 0;
+        }
+
+        // Zablokuj po 5 neúspešných pokusoch
+        if ($_SESSION['login_attempts'] >= 5) {
+            $error = 'Príliš veľa neúspešných pokusov. Skúste neskôr.';
+            return $error;
+        }
+
         // self pre staticke (nemusi existovat instancia na zavolanie)
         if ($username === self::VALID_USERNAME && password_verify($password, self::VALID_PASSWORD_HASH)) {
             $_SESSION['admin_logged_in'] = true;
             header('Location: messages.php');
             exit;
         } else {
+            $_SESSION['login_attempts']++;
             $error = 'Nesprávne meno alebo heslo.';
             return $error;
         }

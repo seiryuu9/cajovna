@@ -13,7 +13,7 @@ class Cart extends Database
     public function __construct(){
         parent::__construct(); // zavola konstruktor z databazy
         $this->conn = $this->getConnection(); // pripojenie na databazu
-        $this->cart = $_SESSION['cart'] ?? []; // nacila kosik zo session (default prazdny) / asociativne pole
+        $this->cart = $_SESSION['cart'] ?? []; // nacita kosik zo session (default prazdny) / asociativne pole
     }
 
     function getCart(): array{
@@ -25,22 +25,27 @@ class Cart extends Database
         $id = intval($id);
         $quantity = intval($quantity);
 
-// fetch id
+        // fetch id
         $stmt = $this->conn->prepare('SELECT * FROM products WHERE id = ?');
         $stmt->execute([$id]);
         $product = $stmt->fetch();
 
-// prida/update mnozstvo
+        // prida/update mnozstvo
         if (isset($_SESSION['cart'][$id])) {
             $_SESSION['cart'][$id] += $quantity;
         } else {
             $_SESSION['cart'][$id] = $quantity;
         }
+
+        // synchronizacia, lebo su od seba nezavisle
+        $this->cart[$id] = $_SESSION['cart'][$id];
+
     }
 
     function removeFromCart($id){
         $id = intval($id);
         unset($_SESSION['cart'][$id]);
+        unset($this->cart[$id]); //vymaze aj z this cart, pouziam ako lokalnu premennu
     }
 
     function buy(){
@@ -80,8 +85,6 @@ class Cart extends Database
 
             // ulozi zmeny
             $conn->commit();
-
-            header('Location: /cajovna/thankyou.php');
             exit;
         } catch (\PDOException $e) {
             // vymaze zmeny

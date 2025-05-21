@@ -12,6 +12,11 @@ $meno = $_POST["meno"];
 $email = $_POST["email"];
 $sprava = $_POST["sprava"];
 
+if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+    echo "Neplatný email";
+    exit();
+}
+
 // CRUD -  create
 $sql = "INSERT INTO formular (meno, email, sprava) 
         VALUES (:meno, :email, :sprava)"; //placeholder na preventnutie SQL injection
