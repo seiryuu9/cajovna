@@ -1,20 +1,21 @@
 <?php
 
 namespace cajovna\classes;
-use cajovna\classes\pozdrav; //prve je namespace
+
 include_once 'classes/Pozdrav.php';
 
+use cajovna\classes\pozdrav; //prve je namespace
 
 class Carousel
 {
-    protected $pozdrav;
+    protected $pozdravenie;
 
     public function __construct()
     {
-        $this->Pozdrav = new Pozdrav(); // treba konstruktor na prvotnu inicializaciu triedy
+        $this->pozdravenie = new Pozdrav(); // treba konstruktor na prvotnu inicializaciu triedy
     }
-    function carouselF(){
-
+    public function carousel(): void
+    {
         $json = file_get_contents('data/datas.json');
         $data = json_decode($json, true); //true vrati asociativne pole (nie objekt)
         $carouselData = $data['carousel'];
@@ -27,7 +28,7 @@ class Carousel
             echo '<div class="container">';
             echo '<div class="row justify-content-center">';
             echo '<div class="col-lg-7 text-center">';
-            $this->Pozdrav->pozdravF();
+            $this->pozdravenie->pozdrav();
             echo '<h1 class="display-1 text-dark mb-4 animated zoomIn">Organická & kvalitná produkcia čajov</h1>';
             echo '</div>';
             echo '</div>';

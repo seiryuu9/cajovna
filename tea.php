@@ -1,7 +1,6 @@
 <?php
-
 include_once 'parts/theme-handler.php';
-require_once(__DIR__ . '/classes/Cart.php');
+require_once 'classes/Cart.php';
 
 use cajovna\classes\Cart;
 $cart = new Cart();
@@ -52,5 +51,6 @@ $product = $cart->getProductById($id);
 </div>
 
 <?php include_once 'parts/footer.php'; ?>
+
 </body>
 </html>

@@ -57,7 +57,7 @@ include_once 'parts/head.php';
     </div>
     <!-- Products End -->
 
-<?php
+    <?php
     include_once 'parts/footer.php';
     ?>
 

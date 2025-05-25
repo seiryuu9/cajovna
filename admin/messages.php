@@ -13,6 +13,9 @@ $conn = $db->getConnection();
 
 $stmt = $conn->query("SELECT * FROM formular ORDER BY id"); //CRUD - read
 $messages = $stmt->fetchAll(PDO::FETCH_ASSOC); //zobrazi vsetky spravy v asociativnom poli
+
+$stmtNewsletter = $conn->query("SELECT id, email FROM newsletter ORDER BY id");
+$subscribers = $stmtNewsletter->fetchAll(PDO::FETCH_ASSOC);
 ?>
 
 <!DOCTYPE html>
@@ -60,6 +63,37 @@ include_once '../parts/theme-handler.php';
         </table>
     <?php endif; ?>
 </div>
+
+<div class="container py-5">
+    <h2 class="mb-4">Zoznam prihlásených na newsletter</h2>
+
+    <?php if (empty($subscribers)): ?>
+        <p>Žiadny používateľ sa zatiaľ neprihlásil na odber.</p>
+    <?php else: ?>
+        <table class="table table-bordered table-hover">
+            <thead class="table-light">
+            <tr>
+                <th>ID</th>
+                <th>Email</th>
+                <th>Akcie</th> <!-- Nový stĺpec -->
+            </tr>
+            </thead>
+            <tbody>
+            <?php foreach ($subscribers as $subscriber): ?>
+                <tr>
+                    <td><?= $subscriber['id'] ?></td>
+                    <td><?= htmlspecialchars($subscriber['email']) ?></td>
+                    <td>
+                        <a href="delete_newsletter.php?id=<?= $subscriber['id'] ?>" class="btn btn-sm btn-danger"
+                           onclick="return confirm('Naozaj chcete odberateľa vymazať?')">Vymazať</a>
+                    </td>
+                </tr>
+            <?php endforeach; ?>
+            </tbody>
+        </table>
+    <?php endif; ?>
+</div>
+
 
 <?php include_once '../parts/footer.php'; ?>
 </body>

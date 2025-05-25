@@ -31,9 +31,8 @@ include_once 'parts/header.php';
 </div>
 
 <?php
-include_once '../cajovna/parts/footer.php';
+include_once 'parts/footer.php';
 ?>
-
 
 </body>
 

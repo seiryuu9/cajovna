@@ -6,19 +6,18 @@ require_once __DIR__ . '/../classes/Database.php';
 
 class Admin{
 
-    private const VALID_USERNAME = 'admin';
+    private const VALID_USERNAME = 'admin'; //konstanty velkymi pismenami
     private const VALID_PASSWORD_HASH = '$2y$10$0K6pSxCLILEOwh/bjk46SeftnvbxBhUGmJhx2JlRbHTpiePZJ/4Z6';
 
     public static function login($username, $password){
-        // Hardcoded login (replace with database if needed)
         $error = '';
 
-        // Inicializuj počet pokusov, ak ešte neexistuje
+        // inicializuj počet pokusov
         if (!isset($_SESSION['login_attempts'])) {
             $_SESSION['login_attempts'] = 0;
         }
 
-        // Zablokuj po 5 neúspešných pokusoch
+        // 5 neúspešných pokusov
         if ($_SESSION['login_attempts'] >= 5) {
             $error = 'Príliš veľa neúspešných pokusov. Skúste neskôr.';
             return $error;
@@ -37,7 +36,7 @@ class Admin{
     }
 
     public static function logout(){
-        session_start();
+        session_start(); //nacita uz existujucu session
         session_destroy();
         header("Location: login.php");
         exit;

@@ -1,30 +1,32 @@
 <?php
-    include_once 'parts/theme-handler.php';
+include_once 'parts/theme-handler.php';
+include_once 'classes/Carousel.php';
+use cajovna\classes\Carousel;
 ?>
 
 <!DOCTYPE html>
 <html lang="sk">
 
 <?php
-    include_once 'parts/head.php';
+include_once 'parts/head.php';
 ?>
 
 <body class="<?php echo $themeClass; ?>">
     
 <?php
-    include_once 'parts/nav.php';
-    ?>
+include_once 'parts/nav.php';
+?>
 
-    <!-- Carousel Start PHP OPAKUJE SA TEXT A TAHA OBRAZKY Z PHP A JSON? -->
+    <!-- carousel taha obrazky z json -->
     <div class="container-fluid px-0 mb-5">
         <div id="header-carousel" class="carousel slide carousel-fade" data-bs-ride="carousel">
             <div class="carousel-inner">
+
                 <?php
-                use cajovna\classes\carousel;
-                include_once 'classes/Carousel.php';
                 $carousel = new Carousel(); // instancia triedy
-                $carousel->carouselF(); // volanie metody
+                $carousel->carousel(); // volanie metody
                 ?>
+
             <button class="carousel-control-prev" type="button" data-bs-target="#header-carousel"
                 data-bs-slide="prev">
                 <span class="carousel-control-prev-icon" aria-hidden="true"></span>
@@ -40,7 +42,7 @@
     <!-- Carousel End -->
 
 
-    <!-- About Start kazda cast je na inej stranke, takze to mozes dat do php a zavolat-->
+    <!-- About Start -->
     <div class="container-xxl py-5">
         <div class="container">
             <div class="row g-5">

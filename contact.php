@@ -90,7 +90,7 @@ include_once 'parts/head.php';
     <!-- Contact End -->
 
     <?php
-    include_once '../cajovna/parts/footer.php';
+    include_once 'parts/footer.php';
     ?>
 
 </body>
