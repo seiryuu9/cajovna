@@ -49,13 +49,13 @@ include_once '../parts/theme-handler.php';
             <tbody>
             <?php foreach ($messages as $msg): ?> <!--msg je jeden riadok-->
                 <tr>
-                    <td><?= $msg['ID'] ?></td>
+                    <td><?= $msg['id'] ?></td>
                     <td><?= htmlspecialchars($msg['meno']) ?></td>
                     <td><?= htmlspecialchars($msg['email']) ?></td>
                     <td><?= nl2br(htmlspecialchars($msg['sprava'])) ?></td>
                     <td>
-                        <a href="edit_messages.php?id=<?= $msg['ID'] ?>" class="btn btn-sm btn-warning">Upraviť</a>
-                        <a href="delete_messages.php?id=<?= $msg['ID'] ?>" class="btn btn-sm btn-danger" onclick="return confirm('Naozaj chcete túto správu vymazať?')">Vymazať</a>
+                        <a href="edit_messages.php?id=<?= $msg['id'] ?>" class="btn btn-sm btn-warning">Upraviť</a>
+                        <a href="delete_messages.php?id=<?= $msg['id'] ?>" class="btn btn-sm btn-danger" onclick="return confirm('Naozaj chcete túto správu vymazať?')">Vymazať</a>
                     </td>
                 </tr>
             <?php endforeach; ?>

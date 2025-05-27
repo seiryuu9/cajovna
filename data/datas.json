@@ -17,36 +17,7 @@
   "stranky": {
     "store.php": {
       "title": "Obchod",
-      "title2": "Obchod",
-      "products": [
-        {
-          "id": 1,
-          "name": "Prírode blízky čaj",
-          "description": "Aliqu diam amet diam et eos. Clita erat ipsum lorem erat ipsum lorem sit sed",
-          "price": 12.99,
-          "image": "img/store-product-1.jpg",
-          "alt": "caj1",
-          "rating": 4
-        },
-        {
-          "id": 2,
-          "name": "Zelený čaj tulsi",
-          "description": "Aliqu diam amet diam et eos. Clita erat ipsum lorem erat ipsum lorem sit sed",
-          "price": 19.00,
-          "image": "img/store-product-2.jpg",
-          "alt": "caj2",
-          "rating": 5
-        },
-        {
-          "id": 3,
-          "name": "Instantný čajový mix",
-          "description": "Aliqu diam amet diam et eos. Clita erat ipsum lorem erat ipsum lorem sit sed",
-          "price": 17.00,
-          "image": "img/store-product-3.jpg",
-          "alt": "caj3",
-          "rating": 5
-        }
-      ]
+      "title2": "Obchod"
     },
     "about.php": {
       "title": "O nás",

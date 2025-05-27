@@ -28,7 +28,7 @@
             <div class="col-lg-4 col-md-6">
                 <h4 class="text-primary mb-4">Odber noviniek</h4>
                 <p>Dolor amet sit justo amet elitr clita ipsum elitr est.</p>
-                <form action="db/spracovanieNewsletter.php" method="POST"> <!-- bezpecnejsie, neuklada sa v url ani v browser historii -->
+                <form action="/cajovna/db/spracovanieNewsletter.php" method="POST"> <!-- bezpecnejsie, neuklada sa v url ani v browser historii -->
                 <div class="position-relative w-100">
                     <input class="form-control bg-transparent w-100 py-3 ps-4 pe-5 text-white" type="email" placeholder="Váš email" name="newsletterEmail" required>
                     <button type="submit" class="btn btn-primary py-2 position-absolute top-0 end-0 mt-2 me-2">odoslať</button>

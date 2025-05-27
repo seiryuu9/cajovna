@@ -50,7 +50,7 @@ include_once 'parts/head.php';
                 <div class="col-lg-6 wow fadeInUp" data-wow-delay="0.1s">
                     <h3 class="mb-4">Svoje údaje zadajte sem.</h3>
                     <p class="mb-4">Vaše údaje budú spracované v súlade s GDPR.</p>
-                    <form id="contact" method="post" action="db/spracovanieFormulara.php">
+                    <form id="contact" method="post" action="/cajovna/db/spracovanieFormulara.php">
                         <div class="row g-3">
                             <div class="col-md-6">
                                 <div class="form-floating">

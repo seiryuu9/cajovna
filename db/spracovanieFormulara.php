@@ -29,7 +29,7 @@ try {
     $statement->bindParam(':sprava', $sprava, PDO::PARAM_STR);
 
     $insert = $statement->execute();
-    header("Location: http://localhost/cajovna/thankyou.php"); // THANK YOU STRANKA
+    header("Location: /cajovna/thankyou.php"); // THANK YOU STRANKA
     exit();
 } catch (PDOException $e) {
     echo $e->getMessage();

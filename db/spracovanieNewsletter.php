@@ -21,7 +21,7 @@ try {
     $statement->bindParam(':mail', $mail, PDO::PARAM_STR);
 
     $insert = $statement->execute();
-    header("Location: http://localhost/cajovna/thankyou.php"); // THANK YOU STRANKA
+    header("Location: /cajovna/thankyou.php"); // THANK YOU STRANKA
     exit();
 } catch (PDOException $e) {
     if ($e->errorInfo[1] == 1062) {

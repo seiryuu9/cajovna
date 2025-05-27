@@ -20,6 +20,7 @@ class Cart extends Database
         return $this->cart;
     }
 
+
     function addToCart($id, $quantity){
 
         $id = intval($id);
@@ -85,6 +86,7 @@ class Cart extends Database
 
             // ulozi zmeny
             $conn->commit();
+            header('Location: /cajovna/thankyou.php');
             exit;
         } catch (\PDOException $e) {
             // vymaze zmeny
@@ -143,7 +145,6 @@ class Cart extends Database
             try {
                 $this->buy();
                 $_SESSION['cart'] = [];
-                header('Location: thankyou.php');
                 exit;
             } catch (\PDOException $e) {
                 echo "Chyba: " . $e->getMessage();

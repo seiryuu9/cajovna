@@ -1,5 +1,8 @@
 <?php
 include_once 'parts/theme-handler.php';
+
+require_once __DIR__ . '/classes/Database.php';
+use cajovna\classes\Database;
 ?>
 
 <!DOCTYPE html>
@@ -15,11 +18,12 @@ include_once 'parts/head.php';
     include_once 'parts/nav.php';
     include_once 'parts/header.php';
 
-    $jsonData = file_get_contents('data/datas.json');
-    $data = json_decode($jsonData, true);
+    $db = new Database();
+    $conn = $db->getConnection();
 
-    // nacitaj produkty
-    $products = $data['stranky']['store.php']['products'];
+    // Fetch products from the database
+    $stmt = $conn->query("SELECT * FROM products");
+    $products = $stmt->fetchAll();
     ?>
 
         <div class="container-xxl py-5">
