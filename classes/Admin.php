@@ -2,6 +2,7 @@
 
 namespace cajovna\classes;
 use PDO;
+
 require_once __DIR__ . '/../classes/Database.php';
 
 class Admin{
@@ -9,7 +10,8 @@ class Admin{
     private const VALID_USERNAME = 'admin'; //konstanty velkymi pismenami
     private const VALID_PASSWORD_HASH = '$2y$10$0K6pSxCLILEOwh/bjk46SeftnvbxBhUGmJhx2JlRbHTpiePZJ/4Z6';
 
-    public static function login($username, $password){
+    public static function login($username, $password): string
+    {
         $error = '';
 
         // inicializuj počet pokusov
@@ -35,14 +37,16 @@ class Admin{
         }
     }
 
-    public static function logout(){
+    public static function logout(): void
+    {
         session_start(); //nacita uz existujucu session
         session_destroy();
         header("Location: login.php");
         exit;
     }
 
-    public static function check(){
+    public static function check(): void
+    {
         session_start();
         if (!isset($_SESSION['admin_logged_in']) || $_SESSION['admin_logged_in'] !== true) {
             header('Location: login.php'); //ak nie je prihlaseny, presmeruj na login
@@ -50,8 +54,8 @@ class Admin{
         }
     }
 
-    public static function editMessage($id, $data = null){
-
+    public static function editMessage($id, $data = null): array
+    {
         self::check();
         $db = new Database();
         $conn = $db->getConnection();
@@ -75,7 +79,8 @@ class Admin{
         return $message;
     }
 
-    public static function deleteMessage($id){
+    public static function deleteMessage($id): void
+    {
         self::check();
         $db = new Database();
         $conn = $db->getConnection();

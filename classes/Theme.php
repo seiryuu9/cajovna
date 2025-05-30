@@ -6,11 +6,11 @@ class Theme
 {
     public static function toggleTheme(): void
     {
-        // Toggle between light and dark themes
+        // meni sa dark a light
         if ($_SESSION['theme'] === 'dark-theme') {
-            $_SESSION['theme'] = 'light-theme';  // Set it to light if it was dark
+            $_SESSION['theme'] = 'light-theme';
         } else {
-            $_SESSION['theme'] = 'dark-theme';  // Set it to dark if it was light
+            $_SESSION['theme'] = 'dark-theme';
         }
     }
 

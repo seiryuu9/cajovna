@@ -6,7 +6,6 @@ use PDO;
 
 require_once (__DIR__ . '/Database.php');
 
-
 class Cart extends Database
 {
     private array $cart;
@@ -16,12 +15,13 @@ class Cart extends Database
         $this->cart = $_SESSION['cart'] ?? []; // nacita kosik zo session (default prazdny) / asociativne pole
     }
 
-    function getCart(): array{
+    public function getCart(): array
+    {
         return $this->cart;
     }
 
-
-    function addToCart($id, $quantity){
+    public function addToCart($id, $quantity): void
+    {
 
         $id = intval($id);
         $quantity = intval($quantity);
@@ -43,14 +43,15 @@ class Cart extends Database
 
     }
 
-    function removeFromCart($id){
+    public function removeFromCart($id): void
+    {
         $id = intval($id);
         unset($_SESSION['cart'][$id]);
         unset($this->cart[$id]); //vymaze aj z this cart, pouziam ako lokalnu premennu
     }
 
-    function buy(){
-
+    function buy(): void
+    {
         $conn = $this->getConnection();
         $cart = $this->cart;
 
@@ -96,13 +97,15 @@ class Cart extends Database
         }
     }
 
-    function getProductById($id) {
+    public function getProductById($id): array
+    {
         $stmt = $this->conn->prepare('SELECT * FROM products WHERE id = ?');
         $stmt->execute([$id]);
         return $stmt->fetch(); //pripravi sql dotaz - ? placeholder berie $id ako hodnotu, nie kod (sql injection), len 1 riadok
     }
 
-    function handleAddtoCart(){
+    public function handleAddtoCart(): void
+    {
         if ($_SERVER['REQUEST_METHOD'] === 'POST') { //z kupit
             try {
                 $this->addToCart($_POST['id'], $_POST['quantity']);
@@ -115,7 +118,8 @@ class Cart extends Database
         }
     }
 
-    function getCartProducts(): array {
+    public function getCartProducts(): array
+    {
         if (!empty($this->cart)) {
             // zozbiera kluce - id
             $cartKeys = array_keys($this->cart);
@@ -132,7 +136,8 @@ class Cart extends Database
         } return []; //prazdny kosik
     }
 
-    function handleRemoveFromCart(){
+    public function handleRemoveFromCart(): void
+    {
         if (isset($_GET['remove_id'])) { //z url
             $this->removeFromCart($_GET['remove_id']);
             header('Location: cart_page.php');
@@ -140,7 +145,8 @@ class Cart extends Database
         }
     }
 
-    function handleBuy(){
+    public function handleBuy(): void
+    {
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             try {
                 $this->buy();
@@ -152,6 +158,5 @@ class Cart extends Database
             }
         }
     }
-
 
 }

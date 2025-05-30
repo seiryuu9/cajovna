@@ -1,5 +1,5 @@
 <?php
-include_once 'parts/theme-handler.php';
+include_once 'parts/theme_handler.php';
 require_once 'classes/Cart.php';
 
 use cajovna\classes\Cart;

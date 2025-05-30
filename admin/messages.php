@@ -24,11 +24,10 @@ $subscribers = $stmtNewsletter->fetchAll(PDO::FETCH_ASSOC);
 <?php
 include_once '../parts/head.php';
 include_once '../parts/nav.php';
-include_once '../parts/theme-handler.php';
+include_once '../parts/theme_handler.php';
 ?>
 
 <body class="<?php echo $themeClass; ?>">
-
 
 <div class="container py-5">
     <h1 class="mb-4">Zoznam správ z formulára</h1>

@@ -1,5 +1,5 @@
 <?php
-include_once 'parts/theme-handler.php';
+include_once 'parts/theme_handler.php';
 include_once 'classes/Carousel.php';
 use cajovna\classes\Carousel;
 ?>

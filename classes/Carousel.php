@@ -4,7 +4,7 @@ namespace cajovna\classes;
 
 include_once 'classes/Pozdrav.php';
 
-use cajovna\classes\pozdrav; //prve je namespace
+use cajovna\classes\Pozdrav; //prve je namespace
 
 class Carousel
 {
