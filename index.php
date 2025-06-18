@@ -1,6 +1,7 @@
 <?php
 include_once 'parts/theme_handler.php';
 include_once 'classes/Carousel.php';
+
 use cajovna\classes\Carousel;
 ?>
 
@@ -13,9 +14,9 @@ include_once 'parts/head.php';
 
 <body class="<?php echo $themeClass; ?>">
     
-<?php
-include_once 'parts/nav.php';
-?>
+    <?php
+    include_once 'parts/nav.php';
+    ?>
 
     <!-- carousel taha obrazky z json -->
     <div class="container-fluid px-0 mb-5">
@@ -27,20 +28,20 @@ include_once 'parts/nav.php';
                 $carousel->carousel(); // volanie metody
                 ?>
 
-            <button class="carousel-control-prev" type="button" data-bs-target="#header-carousel"
-                data-bs-slide="prev">
-                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                <span class="visually-hidden">Previous</span>
-            </button>
-            <button class="carousel-control-next" type="button" data-bs-target="#header-carousel"
-                data-bs-slide="next">
-                <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                <span class="visually-hidden">Next</span>
-            </button>
+                <button class="carousel-control-prev" type="button" data-bs-target="#header-carousel"
+                    data-bs-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Previous</span>
+                </button>
+                <button class="carousel-control-next" type="button" data-bs-target="#header-carousel"
+                    data-bs-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Next</span>
+                </button>
+            </div>
         </div>
     </div>
     <!-- Carousel End -->
-
 
     <!-- About Start -->
     <div class="container-xxl py-5">
@@ -88,7 +89,6 @@ include_once 'parts/nav.php';
     </div>
     <!-- About End -->
 
-
     <!-- Products Start -->
     <div class="container-fluid product py-5 my-5">
         <div class="container py-5">
@@ -130,7 +130,6 @@ include_once 'parts/nav.php';
     </div>
     <!-- Products End -->
 
-
     <!-- Article Start -->
     <div class="container-xxl py-5">
         <div class="container">
@@ -151,7 +150,6 @@ include_once 'parts/nav.php';
         </div>
     </div>
     <!-- Article End -->
-
 
     <!-- Video Start -->
     <div class="container-fluid video my-5">
@@ -208,8 +206,7 @@ include_once 'parts/nav.php';
         </div>
     </div>
     <!-- Video End -->
-
-
+    
     <!-- Contact Start -->
     <div class="container-xxl contact py-5">
         <div class="container">
