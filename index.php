@@ -206,7 +206,7 @@ include_once 'parts/head.php';
         </div>
     </div>
     <!-- Video End -->
-    
+
     <!-- Contact Start -->
     <div class="container-xxl contact py-5">
         <div class="container">

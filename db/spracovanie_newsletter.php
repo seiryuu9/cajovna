@@ -15,7 +15,7 @@ if (!filter_var($mail, FILTER_VALIDATE_EMAIL)) { //kontroluje ci je email validn
 
 $sql = "INSERT INTO newsletter (email) 
     VALUES (:mail)";
-$statement = $conn->prepare($sql); //uzamkne strukturu tabulky, takze sa tam nedostane neziadany kod (placeholders su este bezpecnejsie)
+$statement = $conn->prepare($sql); //uzamkne strukturu tabulky, takze sa tam nedostane neziadany kod
 
 try {
     $statement->bindParam(':mail', $mail, PDO::PARAM_STR);
